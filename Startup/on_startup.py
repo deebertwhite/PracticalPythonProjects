@@ -3,7 +3,13 @@ import os, shutil, winshell
 ## TEMP FOLDER EMPTY PROCESS ##
 ## SOME FILES WILL NOT BE DELETED ##
 
-tempPathLocal = r'C:\Users\JAMES~1.W_U\AppData\Local\Temp'
+getUser = os.getlogin()
+pathToUser = r'C:\Users'
+userPath = os.path.join(pathToUser, getUser)
+tempLocal = r'\AppData\Local\Temp'
+tempPathLocal = userPath + tempLocal
+
+#tempPathLocal = r'C:\Users\JAMES~1.W_U\AppData\Local\Temp'
 tempDeleteLocal = os.listdir(tempPathLocal)
 
 for file in tempDeleteLocal:
@@ -18,6 +24,7 @@ for file in tempDeleteLocal:
 
 ## TEMP FOLDER EMPTY PROCESS ##
 ## SOME FILES MAY NOT BE DELETED ##
+#tempPath = 'C:\\Windows\\Temp'
 
 tempPath = r'C:\Windows\Temp'
 tempDelete = os.listdir(tempPath)
@@ -39,4 +46,4 @@ isBinEmpty = list(winshell.recycle_bin())
 if isBinEmpty == []:
     print('Nothing to delete')
 else:
-    winshell.recycle_bin().empty()
+    winshell.recycle_bin().empty(confirm= False)
