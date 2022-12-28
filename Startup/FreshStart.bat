@@ -1,0 +1,1 @@
+python C:\Users\deebe\Documents\PracticalPythonProjects\Startup\on_startup.py
